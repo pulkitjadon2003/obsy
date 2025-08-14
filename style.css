@@ -151,6 +151,7 @@ body{
     font-weight: 500;
 }
 
+
 #page1 .hero{
     /* background: red; */
     font-weight: bold;
@@ -172,8 +173,18 @@ body{
     height: fit-content;
     display: flex;
     z-index: 999999;
+    position: relative;
 }
 
+#first-line::before{
+    content: "01";
+    position: absolute;
+    font-size: 3.2vw;
+    font-family: "silk serif";
+    font-weight: 500;
+    left: 18%;
+
+}
 
 .hero:nth-child(2){
     margin-top: 12vh;
@@ -261,6 +272,17 @@ body{
 #page4-content h1{
     font-size: 7vw;
     text-transform: uppercase;
+    position: relative;
+}
+#page4-content h1::before{
+    content: "04";
+    position: absolute;
+    left: -13%;
+    top: 10%;
+    font-size: 3.2vw;
+    font-family: "silk serif";
+    font-weight: 500;
+
 }
 #page4-content .underline{
     height: 1px;
@@ -361,4 +383,73 @@ body{
     to{
         transform: translate(-100%);
     }
+}
+
+#footer{
+    height: 80vh;
+    width: 100%;
+    background:#151515 ;
+    padding-left: 27vw;
+}
+
+#footer h1{
+    font-size: 7.2vw;  
+    text-transform: uppercase;
+    margin-bottom: 8vh;
+    position: relative;
+}
+#footer h1::before{
+    content: "04";
+    position: absolute;
+    left: -13%;
+    top: 10%;
+    font-size: 3.2vw;
+    font-family: "silk serif";
+    font-weight: 500;
+
+}
+#footer .underline{
+    height: 1.5px;
+    width: 100%;
+    background-color: white;
+    margin: 8vh 0;
+
+}
+
+#footer #footer-div{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-right: 12vw;
+}
+
+#footer-div .box{
+    height: 50%;
+    /* background: rebeccapurple; */
+    width: 30%;
+}
+
+#footer-div .box h6{
+    font-size: 1vw;
+    font-weight: 6  00;
+    margin-bottom: 2vh;
+}
+
+#footer-div .box h5,#footer-div .box h4{
+    font-size: 1.6vw;
+    font-weight: 500;
+    line-height: 2.1vw;
+}
+
+#footer-div .box h5{
+    background-color: black;
+    height: 2vw;
+    overflow: hidden;
+    transition: all ease .3s;
+    white-space: nowrap;
+}
+
+#footer-div .box h5:hover{
+    transform: translateY(-10%);
+    background-color: red;
 }
