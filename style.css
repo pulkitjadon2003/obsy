@@ -10,17 +10,20 @@ html,body{
     width: 100%;
     background-color: #030303;
 }
+body{
+    overflow-x:hidden ;
+}
 
 #crsr{
-    height: 2.3vw;
-    width: 2.3vw;
+    height: 2.5vw;
+    width: 2.5vw;
     /* background-color: white; */
     border: 2px solid rgba(255, 255, 255, 0.534);
     position: fixed;
     border-radius: 50%;
     z-index: 9999;
     mix-blend-mode: difference;
-    animation-timing-function: linear;
+    animation-timing-function: none;
     transform: translate(-50%,-50%);
    
 }
@@ -132,7 +135,7 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6vh 8vw;
+    padding: 8vh 8vw;
     font-weight: 500;
 }
 
@@ -150,15 +153,19 @@ html,body{
 
 #page1 .hero{
     /* background: red; */
-    font-size: 3.5vw;
-    text-transform: uppercase;
-    line-height: 7.7vw;
-    letter-spacing: 1vh;
-    width: 72%;
-    margin-left: 28%;
+    font-weight: bold;
+    width: 70%;
+    margin-left: 27%;
     height: fit-content;
     overflow: hidden;
     display: flex;
+}
+#page1 .hero h1, #page1 .hero h2{
+    font-size: 7vw;
+    text-transform: uppercase;
+    line-height: 7.4vw;
+    letter-spacing: 0.8vh;
+    /* margin-bottom: 1vw; */
 }
 #page1 .hero #move{
     width: fit-content;
@@ -167,26 +174,191 @@ html,body{
     z-index: 999999;
 }
 
+
 .hero:nth-child(2){
     margin-top: 12vh;
 }
 
+.hero:nth-child(4) #move h1{
+    border-bottom: white solid 0.65vw;
+    transition: all ease .3s;
+    font-weight: 400;
+    font-family: "plain regular";
+
+}
 
 
 .hero:nth-child(4) #move:hover h1{
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px white;
     color: transparent;
-    font-weight: 400;
+    border-bottom: transparent solid 0.65vw;
     
 }
 
-.hero:nth-child(4) #move:hover #slash::before{
-    -webkit-text-stroke: transparent;
+#page2{
+    height: 100vh;
+    width: 100vw;
+    background-color: #151515;
+    position: relative;
+}
+#page2 #video-container{
+    height: 75vh;
+    width: 72vw;
+    position: relative;
+    left: 27%;
+    top: 15%;
+}
+#page2 #video-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+}
+#page2 #video-container #video-cursor{
+    height: 10vw;
+    width: 10vw;
+    border-radius: 50%;
+    background-color: #FFA63D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 70%;
+    top: -15%;
+}
+#page2 #video-container #video-cursor i{
+    font-size: 2vw;
     color: white;
-    font-weight: bold;
+}
+#page2 #video-container video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#page3{
+    min-height: 100vh;
+    width: 100%;
+    background-color: grey;
+    position: relative;
+}
+#page4{
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: #151515;
+    padding: 7vh 0;
+
+}
+#page4-content{
+    width: 70%;
+    margin-left: 27%;
+    position: relative;
+
+}
+
+#page4-content h1{
+    font-size: 7vw;
+    text-transform: uppercase;
+}
+#page4-content .underline{
+    height: 1px;
+    background-color: white;
+    width: 100%;
+    margin-bottom: 2.5vw;
+}
+#page4-content>p{
+    font-size: 2.3vw;
+    width: 60%;
+    margin-bottom: 4vw;
+}
+#page4-flex{
+    display: flex;
+    position: relative;
     
 }
-.hero #move #slash::before{
-    content: '/';
+#page4-flex>img{
+    width:48%;
+    margin-right: 3vw;
+}
+
+#page4-flex>p{
+    font-size: 1vw;
+    width: 25%;
+}
+
+#award-showcase{
+    position: relative;
+    height:100%;
+    width: 48%;
+    background-color: #3F7DF4;
+    margin-top: -23%;
+    margin-left: 33%;
+    padding:  3vw;
+    margin-bottom: 15vh;
+
+}
+
+#award-showcase .award-element{
+    height:15vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    padding: 1vw 0;
+}
+
+.award-element h4{
+    font-size: 1.4vw;
+    font-weight: 500;
+    width: 40%;
+ 
+}
+.award-element p{
+    font-size: 1vw;
+    width: 50%
+
+}
+
+#page5{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #151515;
+}
+
+.marque,.marque2{
+    white-space: nowrap;
+}
+
+.marque h1,.marque2 h1,.marque span, .marque2 span{
+    font-size: 7.5vw;
+    display: inline-block;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+    font-weight: 400;
+    line-height: 8vw;
+    margin-right: 16px;
+}
+.marque h1 span,.marque2 h1 span{
+    font-style: italic;
+    font-family: "silk serif";
     
+}
+.marque h1{
+    animation: marque 25s linear  infinite forwards ;
+}
+
+.marque2 h1{
+    animation: marque 25s linear  infinite reverse ;
+}
+@keyframes marque {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translate(-100%);
+    }
 }

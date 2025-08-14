@@ -54,7 +54,9 @@ function cursorAnimation() {
     document.addEventListener("mousemove",function (dets) {
         gsap.to("#crsr",{
             x:dets.x,
-            y:dets.y
+            y:dets.y,
+            // ease:"none"  ,
+            duration:0
         })
     })
     
