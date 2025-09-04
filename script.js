@@ -223,7 +223,7 @@ function cursorAnimation() {
         elem.addEventListener('mouseleave',()=>{
             gsap.to(heroFlag,{
                 opacity:0,
-                duration:.5,
+                duration:.2,
             })
         })
     })
