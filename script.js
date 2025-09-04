@@ -560,12 +560,12 @@ function ScrollingAnimation(){
    
 
 }
-// loaderAnimation()
+
+
+loaderAnimation()   
 cursorAnimation()
 cursorEvents()
 GooeyAnimation()
 footerAnimation()
-
-locomotive()
-
+locomotive()    
 ScrollingAnimation()
