@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: 'silk serif light italic';
-    src: url(./fonts/silkserif-lightitalic-webfont.woff);
+    src: url(./fonts/silkserif-lightitalic-webfont.woff) url(./fonts/silkserif-regularitalic-webfont.woff);
 }
 
 *{
@@ -48,7 +48,7 @@ body{
     width: 100vw;
     position: fixed;
     top: 0;
-    z-index: 9999;
+    z-index: 9999999;
     background-color: #030303;
     padding: 18vh 8vw;
 
@@ -149,7 +149,7 @@ body{
     /* background-color: red; */
     position: relative;
     margin-top: 30vh;
-    z-index: 9999999;
+    /* z-index: 9999999; */
 }
 
 nav{
@@ -172,6 +172,17 @@ nav{
     width: 8vw;
 }
 
+#menu-button{
+    position: relative;
+    background-color: red;
+    height: 10%;
+    width: 20%;
+    padding: 0 auto;
+}
+#logo{
+    position: absolute;
+    left: 8%;
+}
 #nav-part1>p{
     font-size: 1vw;
     position: absolute;
@@ -275,7 +286,7 @@ nav{
 }
 
 #page2{
-    height: 100vh;
+    height: 180vh;
     width: 100vw;
     /* background-color: #151515; */
     /* background-color: rebeccapurple; */
@@ -582,7 +593,7 @@ nav{
     width: 100%;
     position: relative;
     padding: 7vh 0;
-    margin-top: 4vw;
+    margin-top: 30vw;
 
 }
 #page4-content{
@@ -683,6 +694,7 @@ nav{
     min-height: 100vh;
     width: 100%;
     background-color: #151515;
+    margin-top: 40vh;
 }
 
 .marque,.marque2{
@@ -721,11 +733,12 @@ nav{
 }
 
 #footer{
-    height: 80vh;
+    height: 110vh;
     width: 100%;
     background:#151515 ;
     padding-left: 27vw;
     position: relative;
+    padding-bottom: 12vh;
 }
 #footer-text{
     height: 10vw;
@@ -815,6 +828,14 @@ nav{
 
 #footer-div .box .boxs:hover h5{
     transform: translateY(-2.2vw);
+}
+
+#footer>p{
+    height: 1.5vw;
+    font-size: 1vw;
+    font-weight: 500;
+
+
 }
 
 ._canvas_container{

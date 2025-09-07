@@ -34,14 +34,14 @@ function locomotive() {
 function loaderAnimation() {
     
 var tl = gsap.timeline()
+
     tl.from("#line1-part1 ",{
-        delay:.5,
-        opacity:0
+        opacity:0,
     })
     tl.from(".line h1,.line h2",{
         y:150,
         stagger:0.3 ,
-        delay:.5,
+        // delay:.5,
         onStart:function(){
             var h5timer = document.querySelector("#line1-part1 h5")
             let grow = 0
@@ -73,35 +73,38 @@ var tl = gsap.timeline()
         
     })
     tl.to("#loader",{
-        duration:.6,
-        y:-1000,
-        ease:'power1.out',
+        duration:1.4,
+        y:'-100%',
+        ease:'expo.out',
 
     })
 
-    tl.from("#page1",{
-        opacity:0,
-        y:150,
-        duration:.5,
-        ease:Power4,
-    })
+ 
     tl.to("#loader",{
         display:"none",
         // delay:.1,
     })
+
     tl.from("nav",{
         opacity:0
     },"=-1")
+
+    tl.from(" .hero ",{
+    opacity:0,
+    },)
+
     tl.from(".hero #move ",{
         y:120,
-        stagger:0.1,
-        ease:'power1.out',
-        duration:.4,
-        opacity:0
-    })
-    tl.from(".hero , #page2 ",{
+        stagger:0.2,
+        duration:.8,
+        delay:.1,   
+        opacity:0,
+        ease:'circ.out',
+    },)
+
+    tl.from(" #page2 ",{
     opacity:0,
-    },"=-1.2")
+    },)
 
 }
 
@@ -140,8 +143,7 @@ function cursorAnimation() {
             gsap.to(videoCursor,{   
                 left:dets.clientX - 400 ,
                 top:dets.clientY - 230,
-                duration:.8,
-                
+                duration:1,
             })
             
 
@@ -158,7 +160,7 @@ function cursorAnimation() {
         gsap.to(videoCursor,{
             left : "70%",
             top: "-10%",
-            duration:.85
+            duration:1.1
         })
 
     })
@@ -201,7 +203,7 @@ function cursorAnimation() {
     })
 
 
-     let heroFlag = document.querySelector('#heroFlag')
+    let heroFlag = document.querySelector('#heroFlag')
     document.addEventListener('mousemove' , dets=>{
         // console.log(dets);
         
@@ -223,7 +225,7 @@ function cursorAnimation() {
         elem.addEventListener('mouseleave',()=>{
             gsap.to(heroFlag,{
                 opacity:0,
-                duration:.2,
+                // duration:.2,
             })
         })
     })
@@ -412,8 +414,8 @@ function ScrollingAnimation(){
                 trigger:'#page3-content h1',
                 scroller:'#main',
                 // markers:'true',  
-                start:'top 100%',
-                end: 'top 110%',
+                start:'top 130%',
+                end: 'top 120%',
             }
     })
 
@@ -440,7 +442,7 @@ function ScrollingAnimation(){
             scrollTrigger:{
                 trigger:project,
                 scroller:'#main',
-                start:'top 70%',
+                start:'top 100%',
                 end: 'top 90%',
             }
 
@@ -457,8 +459,7 @@ function ScrollingAnimation(){
             scrollTrigger:{
                 trigger:project,
                 scroller:'#main',
-
-                start:'top 40%',
+                start:'top 80%',
                 end: 'top 70%',
             }
     },'image1')
@@ -472,7 +473,7 @@ function ScrollingAnimation(){
                 trigger:project,
                 scroller:'#main',
 
-                start:'top 40%',
+                start:'top 80%',
                 end: 'top 70%',
             }
     },'image1')
@@ -515,45 +516,109 @@ function ScrollingAnimation(){
         opacity:0,
         y:150,
         duration:.8 ,
-        delay:.3
     })
 
-    page4tl.from('#page4 .underline',{
+    page4tl.from('#page4 .underline-top',{
             transform:'scaleX(0)',
             opacity:0,
             duration:.8,
-            ease:Power4.out,
+            ease:'circ.out',
             
     },'=-1')
 
 
    
     page4tl.from('#page4-content .page4-description span p',{
-            y:100,
+            y:120,
             opacity:0,
-            duration:1,
-            stagger:.2,
-            ease:'power4.out'
+            duration:.7,
+            stagger:.1,
+            ease:'circ.out'
             
     },'=-1')
 
 
     page4tl.from('#page4-flex p , #page4-flex img',{
             opacity:0,
-            duration:1,
+            duration:.8,
             stagger:.2,
-            ease:'power4.out'
+            ease:'circ.out'
             
     },)
 
 
      page4tl.from('#page4 #award-showcase',{
             opacity:0,
-            duration:1,
-            ease:'power4.out'
+            duration:.6,
+            ease:'circ.out'
             
     },)
+
+    page4tl.from('#page4 .underline-bottom',{
+            transform:'scaleX(0)',
+            duration:.8,
+            ease:'circ.out'
+            
+    },)
+
+     page4tl.from('#page4 h5',{
+            opacity:0,
+            duration:.5,
+            ease:'circ.out'
+            
+    },)
+
+    gsap.from('#page5',{
+        opacity:0,
+        duration:1,
+        ease:'circ.out',
+        scrollTrigger:{
+            trigger:'#page5',
+            scroller:'#main',
+            // markers:true,
+            start:'top 90%'
+        }
+    })
     
+    let footertl = gsap.timeline({
+        scrollTrigger:{
+        scroller:'#main',
+        trigger:'#footer-text',
+        start:'top 80%',
+        markers:true,
+        }
+
+    })
+
+    footertl.from('#footer-text',{
+        opacity:0,
+        duration:.8,
+    })
+
+    footertl.from('#footer .underline-top',{
+        transform:'scaleX(0)',
+        duration:.8,
+        ease:'circ.out'
+
+    })
+    footertl.from('#footer-div',{
+        opacity:0,
+        duration:.5,
+        ease:'circ.out'
+
+    })
+
+    footertl.from('#footer .underline-bottom',{
+        transform:'scaleX(0)',
+        duration:.8,
+        ease:'circ.out'
+    })
+
+      footertl.from('#footer>p',{
+        opacity:0,
+        duration:.8,
+        ease:'circ.out'
+    })
 
   
    
