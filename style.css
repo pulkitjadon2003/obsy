@@ -1,20 +1,24 @@
 @font-face {
-    font-family: 'Plain';
+    font-family: 'PlainLight';
     src: url(./fonts/plain-light-webfont.woff);
 }
 
 
 @font-face {
-    font-family: 'silk serif light italic';
-    src: url(./fonts/silkserif-lightitalic-webfont.woff) url(./fonts/silkserif-regularitalic-webfont.woff);
+    font-family: 'SilkSerifItalic';
+    src: url(./fonts/silkserif-regularitalic-webfont.woff);
 }
 
+@font-face {
+    font-family: 'SilkSerifRegular';
+    src: url(./fonts/silkserif-regularitalic-webfont.woff);
+}
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     color: #fff;
-    font-family: "Plain" ;
+    font-family: "PlainLight" ;
 }
 html,body{
     height: 100%;
@@ -79,9 +83,10 @@ body{
 #line1-part1 h5,
 #line1-part1 h6{
     font-size: 3vw;
-    font-family: "silk serif";
-    font-weight: 100;
+    font-weight: lighter;
     gap: 1.2vh;
+    font-family: "SilkSerifItalic";
+    font-style: italic;
    
 }
 #line1-part1 h5{
@@ -90,13 +95,13 @@ body{
 }
 .line h2{
     animation: fontchanger 1.2s  linear infinite alternate .2s  ;
-    font-weight: 500;
+    /* font-weight: 500; */
 }
 
 
 @keyframes fontchanger {
     0%{
-        font-family: 'Plain Light';
+        font-family: 'PlainLight';
         -webkit-text-stroke: white 0px;
         color: white;
         opacity: 1;
@@ -106,7 +111,7 @@ body{
     }
     
     45%{
-        font-family: 'Plain Light';
+        font-family: 'PlainLight';
         -webkit-text-stroke: 0px;
         color: white;
         opacity: 0;
@@ -115,7 +120,7 @@ body{
        
     }
     55%{
-        font-family: 'silk serif light italic';
+        font-family: 'SilkSerifItalic SilkSerifRegular';
         /* background-color: white; */
         color: transparent;
         font-style: italic;
@@ -125,7 +130,7 @@ body{
     }
 
     100%{
-        font-family: 'silk serif light italic';
+        font-family: 'SilkSerifItalic SilkSerifRegular' ;
         /* background-color: white; */
         font-style: italic;
         color: transparent;
@@ -135,12 +140,144 @@ body{
     }
 }
 
+#loader p{
+    /* background-color: red; */
+    /* width: 10vmax; */
+    position: absolute;
+    bottom: 25vh;
+    left: 25vw;
+    font-size: 1vmax;
+    font-weight: 550;
+    line-height: 1.5vmax;
+    font-family: 'PlainLight';
+}
+
 
 
 #main{
     position: relative;
     /* background-color: #151515; */
+
 }
+
+#menu-overlay{
+    height: 100vh;
+    width: 100%;
+    background-color: #151515;
+    /* background: rgb(154, 114, 194); */
+    position: absolute;
+    z-index: 9999;
+    top: -100%;
+
+}
+#menu{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:5%;
+    padding-top: 25vh;
+    position: absolute;
+    top: 100%;
+    z-index: 99999;
+}
+
+#menu-part1{
+    height: 100%;
+    width: 45%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+}
+
+#menu-part1 .heads h1 span{
+    font-size: 7vw;
+    text-transform: uppercase;
+
+}
+
+#menu-part1 .heads:nth-child(1) h1 span{
+    font-family: "SilkSerifRegular";
+    font-style: italic;
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+    /* background-color: red; */
+    font-weight: 500;
+    position: relative;
+}
+.heads{
+    width: 100%;
+    height: 7vw ;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-left: 1vh;
+
+}
+#menu-part1 .heads h2{
+    position: absolute;
+}
+
+#menu-part1 .heads h2 span{
+    font-size: 7vw;
+    font-family: "SilkSerifRegular";
+    font-style: italic;
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0;
+}
+
+
+#menu-part2{
+    height: 100%;
+    width: 35%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3vh;
+    position: relative;
+    padding-top: 10vh;
+}
+
+#menu-part2 .box{
+    height: 50%;
+    /* background: rebeccapurple; */
+    /* width: 30%; */
+}
+
+#menu-part2 .box h6{
+    font-size: 1vw;
+    font-weight: 600;
+    margin-bottom: 2vh;
+}
+
+#menu-part2 .box h5,#menu-part2 .box h4{
+    font-size: 1.8vw;
+    font-weight: 500;
+    line-height: 2.1vw;
+}
+
+#menu-part2 .box h5{
+    height: 2vw;
+    transition: all ease .8s;
+}
+
+#menu-part2 .box .boxs{
+    overflow: hidden;
+}
+
+#menu-part2 .box .boxs:hover h5{
+    transform: translateY(-2.2vw);
+}
+
 
 #page1{
     height: 70vh;
@@ -152,15 +289,23 @@ body{
     /* z-index: 9999999; */
 }
 
+#page1 p{
+    position: absolute;
+    color: #c5c5c57b;
+    font-weight: 500;
+    font-size: 1vmax;
+    left: 5vw;
+}
+
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8vh 6vw;
+    padding: 8vh 5vw;
     font-weight: 500;
     position: fixed;
     top: 0;
-    z-index: 99;
+    z-index: 99999;
     width: 100%;
     height: 12vh;
 }
@@ -168,17 +313,19 @@ nav{
 #nav-part1{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 8vw;
+    z-index: 99;
 }
 
 #menu-button{
     position: relative;
-    background-color: red;
-    height: 10%;
-    width: 20%;
-    padding: 0 auto;
+    /* background-color: red; */
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
 }
+
 #logo{
     position: absolute;
     left: 8%;
@@ -249,7 +396,7 @@ nav{
     content: "01";
     position: absolute;
     font-size: 3.2vw;
-    font-family: "silk serif";
+    font-family: "SilkSerifItalic";
     font-weight: 500;
     left: 18%;
 
@@ -261,9 +408,8 @@ nav{
 
 .hero:nth-child(3) #move h1{
     border-bottom: white solid 0.65vw;
-    transition: all ease .3s;
-    font-weight: 400;
-    font-family: "plain regular";
+    transition: color,border-bottom ease .3s;
+    font-family: "PlainLight";
     z-index: 999;
 
 }
@@ -273,6 +419,7 @@ nav{
     -webkit-text-stroke: 1px white;
     color: transparent;
     border-bottom: transparent solid 0.65vw;
+    font-weight: 500;
     
 }
 #heroFlag{
@@ -366,7 +513,7 @@ nav{
     left: -13%;
     top: 10%;
     font-size: 3.2vw;
-    font-family: "silk serif";
+    font-family: "SilkSerifItalic";
     font-weight: 500;
 
 }
@@ -614,7 +761,7 @@ nav{
     left: -13%;
     /* top: 10%; */
     font-size: 3.2vw;
-    font-family: "silk serif";
+    font-family: "SilkSerifItalic";
     font-weight: 500;
 
 }
@@ -713,7 +860,7 @@ nav{
 }
 .marque h1 span,.marque2 h1 span{
     font-style: italic;
-    font-family: "silk serif";
+    font-family: " SilkSerifItalic";
     
 }
 .marque h1{
@@ -767,7 +914,7 @@ nav{
     margin: auto 0;
 }
 #footer #footer-text h2 span{
-    font-family: 'silk serif italic light';
+    font-family: 'SilkSerifItalic SilkSerifRegular';
     /* background-color: white; */
     font-style: italic;
     color: transparent;
@@ -781,7 +928,7 @@ nav{
     left: -13%;
     top: 10%;
     font-size: 3.2vw;
-    font-family: "silk serif";
+    font-family: "SilkSerifItalic";
     font-weight: 500;
 
 }

@@ -35,9 +35,11 @@ function loaderAnimation() {
     
 var tl = gsap.timeline()
 
-    tl.from("#line1-part1 ",{
+    tl.from("#line1-part1",{
         opacity:0,
     })
+
+   
     tl.from(".line h1,.line h2",{
         y:150,
         stagger:0.3 ,
@@ -55,6 +57,11 @@ var tl = gsap.timeline()
         },
     })
 
+    tl.from("#loader p",{
+        opacity:0,
+        duration:1,
+    },'=-.5')
+
     tl.to("#loader .line h1",{
         delay:2.6,
         // duration:.3,
@@ -65,6 +72,13 @@ var tl = gsap.timeline()
         each:.18,
   }
     })
+
+    tl.to("#loader p",{
+        opacity:0,
+        // duration:1,
+    })
+
+     
 
     tl.to("#loader .line",{
         delay:.3,
@@ -79,7 +93,6 @@ var tl = gsap.timeline()
 
     })
 
- 
     tl.to("#loader",{
         display:"none",
         // delay:.1,
@@ -87,11 +100,11 @@ var tl = gsap.timeline()
 
     tl.from("nav",{
         opacity:0
-    },"=-1")
+    },"=-1.2")
 
     tl.from(" .hero ",{
     opacity:0,
-    },)
+    },'=-1')
 
     tl.from(".hero #move ",{
         y:120,
@@ -100,11 +113,11 @@ var tl = gsap.timeline()
         delay:.1,   
         opacity:0,
         ease:'circ.out',
-    },)
+    },'=-1')
 
     tl.from(" #page2 ",{
     opacity:0,
-    },)
+    },'=-1')
 
 }
 
@@ -245,6 +258,12 @@ function cursorAnimation() {
     )
 
 
+    
+
+
+    
+
+
 }
 
 function GooeyAnimation() {
@@ -330,7 +349,222 @@ function footerAnimation(){
 
    
 }
+function menuAnimation(){
 
+    let menuBtn = document.querySelector('#menu-button')
+    let rectAll = document.querySelectorAll("#menu-button svg rect")
+    console.log(rectAll);
+
+    let menuToggle = false
+
+        
+ 
+    menuBtn.addEventListener('click',()=>{
+
+        console.log('helo');
+        
+        if (menuToggle == false) {
+        
+        gsap.to(rectAll[1],{
+            x:5,
+            duration:.3,
+        });
+
+        gsap.to(rectAll[3],{
+            y:-5,
+            duration:.3,
+        });
+
+        gsap.to(rectAll[5],{
+            y:5,
+            duration:.3,
+        });
+
+        gsap.to(rectAll[7],{
+            x:-5,
+            duration:.3,
+        });
+
+        gsap.fromTo('#menu-overlay',{
+            top:'-100%',
+            duration:.5,
+        },{
+            top:0,
+            duration:.5,
+            ease:'circ.out'
+        })
+
+        gsap.to('#nav-part1>p , #nav-part2',{
+            y:-20,
+            opacity:0,
+            duration:.5,
+        })
+
+        gsap.to('#menu',{
+            top:0,
+            duration:.5,
+            opacity:1,
+        })
+
+        gsap.fromTo('.heads h1',{
+            y:100,
+            opacity:0,
+        },{
+            y:0,
+            opacity:1,
+            ease:'circ.out',
+            duration:.7,
+            stagger:.2,
+            delay:.7
+        })
+
+        gsap.fromTo('#menu-part2 .box ',{
+            opacity:0,
+
+        },{
+            opacity:1,
+            ease:'circ.out',
+            duration:.5,
+            stagger:.3,
+            delay:.7
+        })
+
+        menuToggle = true
+        } else {
+
+
+        gsap.to(rectAll[1],{
+            x:0,
+            duration:.3,
+        });
+
+        gsap.to(rectAll[3],{
+            y:0,
+            duration:.3,
+        });
+
+        gsap.to(rectAll[5],{
+            y:0,
+            duration:.3,
+        });
+
+        gsap.to(rectAll[7],{
+            x:0,
+            duration:.3,
+        });
+
+
+
+
+         gsap.to('#menu',{
+            y:-40,
+            opacity:0,
+            duration:.5,
+        })
+        
+        gsap.to('#menu-overlay',{
+            top:'100%',
+            ease:'circ.out',
+            duration:1,
+        })
+
+        gsap.to('#nav-part1>p , #nav-part2',{
+            y:0,
+            opacity:1,
+            duration:.5,
+        })
+
+       
+         gsap.to('#menu',{
+            top:'100%',
+            ease:'circ.out',
+            duration:.5,
+            // opacity:0,
+            delay:.5
+        })
+
+           gsap.to('#menu-part2 .box ',{
+            ease:'circ.out',
+            duration:.3,
+            opacity:0,
+            delay:.5
+        })
+
+        
+        menuToggle = false
+        }
+    })
+
+
+    let menuClutter1 = ""
+
+    document.querySelectorAll('.heads h1').forEach(h1=>{
+
+    h1.textContent.split('').forEach(elem=>{
+        menuClutter1 += `<span>${elem}</span>`
+        
+    })
+    h1.innerHTML = menuClutter1
+    h1.nextElementSibling.innerHTML = menuClutter1
+    
+
+    menuClutter1=''
+    })
+
+
+
+    
+    let menutext = document.querySelectorAll(".heads")
+
+
+    menutext.forEach(menu=>{
+        
+        menu.addEventListener('mouseenter',(elem)=>{
+            console.log(menu.childNodes);
+            
+            
+            gsap.to(menu.querySelectorAll('.heads h1 span'),{
+                opacity:0,
+                stagger:.05,
+                duration:.3,
+            })
+    
+            gsap.to(menu.querySelectorAll('.heads h2 span'),{
+                opacity:1,
+                stagger:.05,
+                duration:.3,
+                delay:.2
+            })
+            
+        
+    })
+
+
+    menu.addEventListener('mouseleave',(elem)=>{
+            console.log(menu.childNodes);
+            
+            
+            gsap.to(menu.querySelectorAll('.heads h1 span'),{
+                opacity:1,
+                stagger:.05,
+                duration:.3,
+                delay:.2
+            })
+    
+            gsap.to(menu.querySelectorAll('.heads h2 span'),{
+                opacity:0,
+                stagger:.05,
+                duration:.4,
+                delay:.2
+            })
+            
+        
+    })
+    
+    })
+
+
+}
 function cursorEvents(){
     let cursor = document.querySelector(".cursor")  
             
@@ -535,7 +769,7 @@ function ScrollingAnimation(){
             stagger:.1,
             ease:'circ.out'
             
-    },'=-1')
+    },'=-.5')
 
 
     page4tl.from('#page4-flex p , #page4-flex img',{
@@ -630,6 +864,7 @@ function ScrollingAnimation(){
 loaderAnimation()   
 cursorAnimation()
 cursorEvents()
+menuAnimation()
 GooeyAnimation()
 footerAnimation()
 locomotive()    
