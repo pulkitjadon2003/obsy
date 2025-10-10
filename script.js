@@ -143,7 +143,8 @@ function cursorAnimation() {
     var videoCursor = document.querySelector("#video-cursor")
     var video = document.querySelector("#video-container video")
 
-    videoContainer.addEventListener("mouseenter",function(){
+    if (!window.matchMedia("only screen and (max-width: 760px)").matches) {
+        videoContainer.addEventListener("mouseenter",function(){
 
         gsap.to(cursor,{
                 display:'none',
@@ -178,6 +179,8 @@ function cursorAnimation() {
 
     })
 
+        
+    }
     
     var flag = 0
     videoContainer.addEventListener("click",()=>{
@@ -190,6 +193,11 @@ function cursorAnimation() {
                 duration:.5
             })
             videoCursor.innerHTML = `<i class="ri-pause-large-fill"></i>`
+            if (window.matchMedia("only screen and (max-width: 760px)").matches){
+                gsap.to(videoCursor,{
+                    opacity:0
+                })
+            }
         }else{
             video.pause()
             video.style.opacity = 0
@@ -200,6 +208,12 @@ function cursorAnimation() {
             })
             videoCursor.style.scale = 1
             videoCursor.innerHTML = `<i class="ri-play-large-fill"></i>`
+
+            if (window.matchMedia("only screen and (max-width: 760px)").matches){
+                gsap.to(videoCursor,{
+                    opacity:1
+                })
+            }
 
         }
     })
@@ -267,12 +281,14 @@ function cursorAnimation() {
 }
 
 function GooeyAnimation() {
-    Shery.imageEffect(".image-div",{
+    if(!window.matchMedia("only screen and (max-width: 760px)").matches){
+        Shery.imageEffect(".image-div",{
         style:5,
         // debug:true,
         gooey:true,
         config: {"a":{"value":1.37,"range":[0,30]},"b":{"value":0.75,"range":[-1,1]},"zindex":{"value":-9996999,"range":[-9999999,9999999]},"aspect":{"value":0.7272749932567818},"ignoreShapeAspect":{"value":true},"shapePosition":{"value":{"x":0,"y":0}},"shapeScale":{"value":{"x":0.5,"y":0.5}},"shapeEdgeSoftness":{"value":0,"range":[0,0.5]},"shapeRadius":{"value":0,"range":[0,2]},"currentScroll":{"value":0},"scrollLerp":{"value":0.07},"gooey":{"value":true},"infiniteGooey":{"value":false},"growSize":{"value":4,"range":[1,15]},"durationOut":{"value":1,"range":[0.1,5]},"durationIn":{"value":1.5,"range":[0.1,5]},"displaceAmount":{"value":0.5},"masker":{"value":false},"maskVal":{"value":1,"range":[1,5]},"scrollType":{"value":0},"geoVertex":{"range":[1,64],"value":1},"noEffectGooey":{"value":true},"onMouse":{"value":1},"noise_speed":{"value":0.15,"range":[0,10]},"metaball":{"value":0.47,"range":[0,2]},"discard_threshold":{"value":0.79,"range":[0,1]},"antialias_threshold":{"value":0,"range":[0,0.1]},"noise_height":{"value":0.6,"range":[0,2]},"noise_scale":{"value":7.63,"range":[0,100]}} 
     })
+    }
 
     
 }
@@ -353,7 +369,7 @@ function menuAnimation(){
 
     let menuBtn = document.querySelector('#menu-button')
     let rectAll = document.querySelectorAll("#menu-button svg rect")
-    console.log(rectAll);
+    // console.log(rectAll);
 
     let menuToggle = false
 
@@ -361,7 +377,6 @@ function menuAnimation(){
  
     menuBtn.addEventListener('click',()=>{
 
-        console.log('helo');
         
         if (menuToggle == false) {
         
@@ -389,7 +404,7 @@ function menuAnimation(){
             top:'-100%',
             duration:.5,
         },{
-            top:0,
+            top:"0%",
             duration:.5,
             ease:'circ.out'
         })
@@ -414,7 +429,7 @@ function menuAnimation(){
             opacity:1,
             ease:'circ.out',
             duration:.7,
-            stagger:.2,
+            stagger:.1,
             delay:.7
         })
 
@@ -425,7 +440,7 @@ function menuAnimation(){
             opacity:1,
             ease:'circ.out',
             duration:.5,
-            stagger:.3,
+            stagger:.2,
             delay:.7
         })
 
@@ -457,13 +472,13 @@ function menuAnimation(){
 
 
          gsap.to('#menu',{
-            y:-40,
+            top:'-40px',
             opacity:0,
             duration:.5,
         })
         
         gsap.to('#menu-overlay',{
-            top:'100%',
+            top:'120%',
             ease:'circ.out',
             duration:1,
         })
@@ -520,7 +535,8 @@ function menuAnimation(){
     menutext.forEach(menu=>{
         
         menu.addEventListener('mouseenter',(elem)=>{
-            console.log(menu.childNodes);
+            // console.log(menu.childNodes);
+
             
             
             gsap.to(menu.querySelectorAll('.heads h1 span'),{
@@ -616,7 +632,7 @@ function cursorEvents(){
 
 function ScrollingAnimation(){
    
-    gsap.to('nav #nav-part1 p , nav #nav-part2',{
+    gsap.to('nav #nav-part1 p , nav #nav-part2, #scroll',{
         y:-40,
         opacity:0,
         scrollTrigger:{
@@ -626,11 +642,10 @@ function ScrollingAnimation(){
             start:'top 10%',
             end: 'top -5%',
             scrub:1
-        }
+        },
+        
 
     })
-
-    
 
     gsap.to('#video-cursor',{
         opacity:1,
@@ -724,7 +739,7 @@ function ScrollingAnimation(){
                 scroller:'#main',
                 start:'top 90%',
                 end: 'top 70%',
-                markers:true,
+                // markers:true,
                 scrub:2
             }
 
@@ -740,7 +755,7 @@ function ScrollingAnimation(){
             scrollTrigger:{
                 trigger:'#page4-content h1',
                 scroller:'#main',
-                markers:'true',
+                // markers:'true',
                 start:'top 140%',
                 end: 'top 110%',
             }
@@ -819,7 +834,7 @@ function ScrollingAnimation(){
         scroller:'#main',
         trigger:'#footer-text',
         start:'top 80%',
-        markers:true,
+        // markers:true,
         }
 
     })
@@ -869,3 +884,8 @@ GooeyAnimation()
 footerAnimation()
 locomotive()    
 ScrollingAnimation()
+
+window.addEventListener('resize',()=> {
+    
+    window.location.reload()
+})
