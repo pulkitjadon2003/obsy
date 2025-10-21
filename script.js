@@ -643,6 +643,19 @@ function ScrollingAnimation(){
             end: 'top -5%',
             scrub:1
         },
+        onComplete: ()=> {
+            gsap.to('nav #nav-part1 p , nav #nav-part2, #scroll',{
+                display:'none',
+                scrollTrigger:{
+                    trigger:'#page1',
+                    scroller:'#main',
+                    // markers:'true',
+                    start:'top 10%',
+                    end: 'top -5%',
+                    scrub:1
+                }
+            })
+        }
         
 
     })

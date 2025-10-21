@@ -1,17 +1,22 @@
 @font-face {
     font-family: 'PlainLight';
     src: url(./fonts/plain-light-webfont.woff);
+    font-display: block;
 }
 
 
 @font-face {
     font-family: 'SilkSerifItalic';
     src: url(./fonts/silkserif-regularitalic-webfont.woff);
+    font-display: block;
+
 }
 
 @font-face {
     font-family: 'SilkSerifRegular';
     src: url(./fonts/silkserif-regularitalic-webfont.woff);
+    font-display: block;
+
 }
 *{
     padding: 0;
